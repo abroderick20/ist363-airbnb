@@ -108,3 +108,12 @@ nav a:focus {
   font-weight: italic;
   font-family: Arial, Helvetica, sans-serif;
 }
+.category {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.category h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}

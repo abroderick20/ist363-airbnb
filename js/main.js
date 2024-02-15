@@ -42,33 +42,33 @@ closeBtn.addEventListener('click', function () {
 //   },
 // ]; //end of rooms
 
-// function renderProperties(properties) {
-//   properties.forEach((room) => {
-//     const roomArticle = document.createElement('article');
-//     roomArticle.classList.add('room');
+function renderProperties(properties) {
+  properties.forEach((room) => {
+    const roomArticle = document.createElement('article');
+    roomArticle.classList.add('room');
 
-//     const roomNameElement = document.createElement('h3');
-//     roomNameElement.classList.add('room--name');
-//     roomNameElement.textContent = room.name;
+    const roomNameElement = document.createElement('h3');
+    roomNameElement.classList.add('room--name');
+    roomNameElement.textContent = room.name;
 
-//     const roomDescriptionElement = document.createElement('p');
-//     roomDescriptionElement.classList.add('room--description');
-//     roomDescriptionElement.textContent = room.description;
+    const roomDescriptionElement = document.createElement('p');
+    roomDescriptionElement.classList.add('room--description');
+    roomDescriptionElement.textContent = room.description;
 
-//     const roomPriceElement = document.createElement('p');
-//     roomPriceElement.textContent = `Price: ${room.price}`;
+    const roomPriceElement = document.createElement('p');
+    roomPriceElement.textContent = `Price: ${room.price}`;
 
-//     const roomGuestsElement = document.createElement('p');
-//     roomGuestsElement.textContent = `Guests: ${room.guests}`;
+    const roomGuestsElement = document.createElement('p');
+    roomGuestsElement.textContent = `Guests: ${room.guests}`;
 
-//     roomArticle.appendChild(roomNameElement);
-//     roomArticle.appendChild(roomDescriptionElement);
-//     roomArticle.appendChild(roomPriceElement);
-//     roomArticle.appendChild(roomGuestsElement);
+    roomArticle.appendChild(roomNameElement);
+    roomArticle.appendChild(roomDescriptionElement);
+    roomArticle.appendChild(roomPriceElement);
+    roomArticle.appendChild(roomGuestsElement);
 
-//     document.body.appendChild(roomArticle);
-//   });
-// }
+    document.body.appendChild(roomArticle);
+  });
+}
 
 // fetch('./js/properties.json')
 //   .then((response) => {
@@ -95,11 +95,55 @@ closeBtn.addEventListener('click', function () {
 //     console.error('There was a problem fetching the data:', error);
 //   });
 
+const displayCategory = (category, properties) => {
+  // console.log('displaying category');
+  const sectionElement = document.createElement('section');
+  sectionElement.classList.add('category');
+
+  const sectionTitle = document.createElement('h2');
+  sectionTitle.textContent = category.label.plural;
+
+  sectionElement.appendChild(sectionTitle);
+  console.log(category.label.singular);
+  //1. filter properties
+  const filteredProperties = properties.filter((property) => {
+    //return true or falase
+    return category.label.singular === property.type;
+  });
+
+  filteredProperties.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+
+  filteredProperties.forEach((property) => {
+    const articleElement = document.createElement('article');
+    articleElement.classList.add('property');
+
+    let propertyHtml = `
+    <h3 class="property--title">${property.name}</h3>
+    <p class="property--description">${property.description}</p>
+    <p class="property--price">${property.price}</p>
+    `;
+    articleElement.innerHTML = propertyHtml;
+    sectionElement.appendChild(articleElement);
+  });
+
+  //2. loop and append properties
+
+  document.body.appendChild(sectionElement);
+};
+
 Promise.all([
   // fetch 1
-  fetch('properties.json').then((response) => response.json()),
+  fetch('js/properties.json').then((response) => response.json()),
   // fetch 2
-  fetch('categories.json').then((response) => response.json()),
+  fetch('js/categories.json').then((response) => response.json()),
 ])
   .then(([properties, categories]) => {
     // console.log({ properties });
@@ -111,12 +155,3 @@ Promise.all([
   .catch((error) => {
     console.error('There was a problem fetching the data:', error);
   });
-
-const displayCategory = (category, properties) => {
-  // console.log('displaying category');
-  const sectionElement = document.createElement('section');
-  const sectionTitle = document.createElement('h2');
-  sectionTitle.textContent = category.label.plural;
-  sectionElement.appendChild(sectionTitle);
-  document.body.appendChild(sectionElement);
-};
