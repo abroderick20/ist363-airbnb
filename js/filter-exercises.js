@@ -37,3 +37,25 @@ const filteredCars = cars.filter(() => {
 });
 
 console.log({ filteredCars });
+
+//example 4
+const filterGames = (games, monthIndex) => {
+  const filterGames = games.filter((game) => {
+    const dateObject = new Date(game.date);
+    //return games.month === monthIndex;
+    return dateObject.getMonth() === monthIndex;
+  });
+  console.log({ filterGames });
+};
+//import schedule.json
+//then convert to json
+//then do something with it
+fetch('js/schedule.json')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    //console.log({ data });
+    filterGames(data, 1);
+  })
+  .catch(); //promise

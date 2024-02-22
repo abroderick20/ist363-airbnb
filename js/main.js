@@ -15,33 +15,6 @@ closeBtn.addEventListener('click', function () {
   mobileMenu.classList.remove('active');
 });
 
-// const roomName = 'Luxury King Room';
-// const roomPrice = 300;
-// const roomGuests = 2;
-// const roomDescription = 'A beautiful room with a king size bed.';
-
-// const rooms = [
-//   {
-//     name: 'Luxury King Room',
-//     price: 300,
-//     guests: 2,
-//     description: 'A beautiful room with a king size bed.',
-//   },
-
-//   {
-//     name: 'Luxury King Room',
-//     price: 300,
-//     guests: 2,
-//     description: 'A beautiful room with a king size bed.',
-//   },
-//   {
-//     name: 'Luxury King Room',
-//     price: 300,
-//     guests: 2,
-//     description: 'A beautiful room with a king size bed.',
-//   },
-// ]; //end of rooms
-
 function renderProperties(properties) {
   properties.forEach((room) => {
     const roomArticle = document.createElement('article');
