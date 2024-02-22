@@ -1,3 +1,5 @@
+$color__orange: #d74100;
+
 html,
 body,
 h1,
@@ -14,18 +16,16 @@ button {
   padding: 0;
   font: inherit;
 }
-
 ul,
 li {
   list-style: none;
 }
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #d74100;
+  background-color: $color__orange;
 }
 
 header {
@@ -35,13 +35,11 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
 .logo {
   width: 150px;
   height: auto;
   fill: var(--airbnb-pink);
 }
-
 header {
   font-size: 2rem;
 }
@@ -80,18 +78,15 @@ nav a:focus {
 .overlay.active {
   left: 0;
 }
-
 :root {
   --airbnb-pink: #ff385c;
 }
-
 .btn-ui {
   padding: 1rem;
   border: 1px solid var(--airbnb-pink);
   background-color: transparent;
   cursor: pointer;
 }
-
 .btn-ui svg {
   width: 2rem;
   height: auto;
@@ -115,16 +110,12 @@ nav a:focus {
   font-weight: italic;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .category {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
 .category h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: bold;
 }
-
-/*# sourceMappingURL=style.css.map */
