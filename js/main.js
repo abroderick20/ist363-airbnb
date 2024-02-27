@@ -3,6 +3,7 @@
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeBtn = document.getElementById('closeBtn');
+const content = document.getElementById('content');
 
 //"event name", callback function
 menuBtn.addEventListener('click', function () {
@@ -109,7 +110,7 @@ const displayCategory = (category, properties) => {
 
   //2. loop and append properties
 
-  document.body.appendChild(sectionElement);
+  content.appendChild(sectionElement);
 };
 
 Promise.all([
