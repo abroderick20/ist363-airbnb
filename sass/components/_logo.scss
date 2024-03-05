@@ -1,7 +1,7 @@
-@use '../abstract/vars';
+@use '../abstracts/vars';
 
 .logo {
   width: 150px;
   height: auto;
-  fill: var.$color_primary;
+  fill: vars.$color__primary;
 }

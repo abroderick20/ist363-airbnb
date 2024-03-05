@@ -1,90 +1,38 @@
-//console.log("js has been loaded");
+// console.log("js has been loaded!");
 
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeBtn = document.getElementById('closeBtn');
-const content = document.getElementById('content');
+const contentDiv = document.getElementById('content');
 
-//"event name", callback function
-menuBtn.addEventListener('click', function () {
-  // console.log("clicked!")
+// "event name", callback function
+menuBtn.addEventListener('click', () => {
+  // console.log("cllllllicked!!");
   mobileMenu.classList.add('active');
-});
+}); // end of menuBtn click
 
-closeBtn.addEventListener('click', function () {
-  // console.log("clicked!")
+closeBtn.addEventListener('click', () => {
+  // console.log("cllllllicked!!");
   mobileMenu.classList.remove('active');
-});
-
-function renderProperties(properties) {
-  properties.forEach((room) => {
-    const roomArticle = document.createElement('article');
-    roomArticle.classList.add('room');
-
-    const roomNameElement = document.createElement('h3');
-    roomNameElement.classList.add('room--name');
-    roomNameElement.textContent = room.name;
-
-    const roomDescriptionElement = document.createElement('p');
-    roomDescriptionElement.classList.add('room--description');
-    roomDescriptionElement.textContent = room.description;
-
-    const roomPriceElement = document.createElement('p');
-    roomPriceElement.textContent = `Price: ${room.price}`;
-
-    const roomGuestsElement = document.createElement('p');
-    roomGuestsElement.textContent = `Guests: ${room.guests}`;
-
-    roomArticle.appendChild(roomNameElement);
-    roomArticle.appendChild(roomDescriptionElement);
-    roomArticle.appendChild(roomPriceElement);
-    roomArticle.appendChild(roomGuestsElement);
-
-    document.body.appendChild(roomArticle);
-  });
-}
-
-// fetch('./js/properties.json')
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((data) => {
-//     // console.log(data);
-//     renderProperties(data);
-//   });
-
-// fetch('js/properties.json')
-//   .then((response) => {
-//     // response returns a status code and a body
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     // convert the body to JSON
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data); // Here's your data
-//   })
-//   .catch((error) => {
-//     console.error('There was a problem fetching the data:', error);
-//   });
+}); // end of menuBtn click
 
 const displayCategory = (category, properties) => {
-  // console.log('displaying category');
+  //console.log({category});
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('category');
 
-  const container = document.createElement('div');
+  const containerDiv = document.createElement('div');
   containerDiv.classList.add('container');
 
   const sectionTitle = document.createElement('h2');
   sectionTitle.textContent = category.label.plural;
 
-  sectionElement.appendChild(sectionTitle);
-  console.log(category.label.singular);
-  //1. filter properties
+  containerDiv.appendChild(sectionTitle);
+
+  //console.log(category.label.singular);
+  // 1. filter properties
   const filteredProperties = properties.filter((property) => {
-    //return true or falase
+    // return true or false
     return category.label.singular === property.type;
   });
 
@@ -98,23 +46,26 @@ const displayCategory = (category, properties) => {
     return 0;
   });
 
+  //console.log({filteredProperties});
   filteredProperties.forEach((property) => {
     const articleElement = document.createElement('article');
     articleElement.classList.add('property');
 
     let propertyHtml = `
-    <h3 class="property--title">${property.name}</h3>
-    <p class="property--description">${property.description}</p>
-    <p class="property--price">${property.price}</p>
+      <h3 class="property--title">${property.name}</h3>
+      <p class="property--description">${property.description}</p>
+      <p class="property--price">${property.price}</p>
     `;
-    articleElement.innerHTML = propertyHtml;
-    containerDiv.appendChild(articleElement);
-  });
 
-  //2. loop and append properties
-  sectionElement.appeadChild(containerDiv);
+    articleElement.innerHTML = propertyHtml;
+
+    containerDiv.appendChild(articleElement);
+  }); // end of forEach
+
+  // 2. loop and append properties
+  sectionElement.appendChild(containerDiv);
   contentDiv.appendChild(sectionElement);
-};
+}; // end of displayCategory
 
 Promise.all([
   // fetch 1
@@ -123,8 +74,8 @@ Promise.all([
   fetch('js/categories.json').then((response) => response.json()),
 ])
   .then(([properties, categories]) => {
-    // console.log({ properties });
-    // console.log({ categories });
+    //console.log({properties});
+    //console.log({categories});
     categories.forEach((category) => {
       displayCategory(category, properties);
     });
