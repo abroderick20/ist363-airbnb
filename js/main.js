@@ -74,6 +74,9 @@ const displayCategory = (category, properties) => {
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('category');
 
+  const container = document.createElement('div');
+  containerDiv.classList.add('container');
+
   const sectionTitle = document.createElement('h2');
   sectionTitle.textContent = category.label.plural;
 
@@ -105,12 +108,12 @@ const displayCategory = (category, properties) => {
     <p class="property--price">${property.price}</p>
     `;
     articleElement.innerHTML = propertyHtml;
-    sectionElement.appendChild(articleElement);
+    containerDiv.appendChild(articleElement);
   });
 
   //2. loop and append properties
-
-  content.appendChild(sectionElement);
+  sectionElement.appeadChild(containerDiv);
+  contentDiv.appendChild(sectionElement);
 };
 
 Promise.all([

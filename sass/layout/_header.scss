@@ -1,5 +1,7 @@
+@use '../abstracts/vars';
+
 header {
-  background-color: white;
+  background-color: vars.$color_pink;
   padding: 1rem;
   display: flex;
   justify-content: space-between;

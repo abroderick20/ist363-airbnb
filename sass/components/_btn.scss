@@ -1,0 +1,13 @@
+@use '../abstracts/vars';
+
+.btn-ui {
+  padding: 1rem;
+  border: 1px solid var.$color__primary;
+  background-color: transparent;
+  cursor: pointer;
+  svg {
+    width: 2rem;
+    height: auto;
+    fill: var.$color__primary;
+  }
+}

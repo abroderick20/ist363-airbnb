@@ -1,9 +1,14 @@
-@use './header';
-@use './footer';
+@use './vendor';
+@use './base';
+@use './components';
+@use './layout';
 
-$color__orange: #d74100;
-$font_primary: arial, sans-serif;
+// $color__orange: #d74100;
+// $font_primary: arial, sans-serif;
 
+:root {
+  --airbnb-pink: #ff385c;
+}
 html,
 body,
 h1,
@@ -29,14 +34,9 @@ li {
 }
 
 body {
-  background-color: $color__orange;
+  background-color: vars.$color__orange;
 }
 
-.logo {
-  width: 150px;
-  height: auto;
-  fill: var(--airbnb-pink);
-}
 header {
   font-size: 2rem;
 }
@@ -61,80 +61,6 @@ header {
 //   text-decoration: underline;
 // }
 
-nav {
-  //background-color: $color__orange;
-}
-nav ul {
-  display: flex;
-  gap: 1rem;
-  li {
-    a {
-      font-family: $font_primary;
-      font-weight: bold;
-      font-size: 1rem;
-      color: black;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        color: $color__orange;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  background-color: limegreen;
-  position: fixed;
-  top: 0;
-  left: -100vw;
-  z-index: 1000;
-  transition: all 0.5s;
-}
-
-.overlay.active {
-  left: 0;
-}
 :root {
   --airbnb-pink: #ff385c;
-}
-.btn-ui {
-  padding: 1rem;
-  border: 1px solid var(--airbnb-pink);
-  background-color: transparent;
-  cursor: pointer;
-}
-.btn-ui svg {
-  width: 2rem;
-  height: auto;
-  fill: var(--airbnb-pink);
-}
-
-.room {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid green;
-}
-
-.room--name {
-  padding-top: 1.5rem;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.room--description {
-  padding-top: 1rem;
-  font-weight: italic;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.category {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.category h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
 }

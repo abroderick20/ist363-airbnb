@@ -1,0 +1,7 @@
+@use '../abstract/vars';
+
+.logo {
+  width: 150px;
+  height: auto;
+  fill: var.$color_primary;
+}

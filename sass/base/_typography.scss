@@ -1,0 +1,27 @@
+@use '../abstracts/vars';
+@use '../abstracts/mixins';
+
+h1 {
+  @include mixins.fontProperties(Arial, 2rem, bold, green);
+  @include mixins.breakpoint(tablet) {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  @include mixins.fontProperties(Georgia, 1.5rem, normal, blue);
+  @include mixins.breakpoint(tablet) {
+    font-size: 0.5rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: vars.$font_primary;
+  font-weight: bold;
+  color: green;
+}
+
+p {
+  font-family: vars.$font_secondary;
+}
