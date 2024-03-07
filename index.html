@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css"></link>
 </head>
 <body>
+    <div class="container">
     <header>
         <svg class="logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 102 32" style="enable-background:new 0 0 102 32;" xml:space="preserve">
@@ -75,6 +76,7 @@
         <button id="menuBtn" class="btn-ui">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
         </button>
+    </div>
     </header>
     <div class="overlay" id="mobileMenu">
         <button id="closeBtn">Close Menu</button>
@@ -82,12 +84,27 @@
 
     </div>
     <main>
-        <h1 class="heading heading--1">Heading 1</h1>
+<section class="slider">
+    <h2 class="heading heading--2">Category title</h2>
+    <div class="slider__container">
+    <div class="slider__grid">
+        <article class="slider__item">Slide 1</article>
+        <article class="slider__item">Slide 2</article>
+        <article class="slider__item">Slide 3</article>
+        <article class="slider__item">Slide 4</article>
+        <article class="slider__item">Slide 5</article>
+        <article class="slider__item">Slide 6</article>
+    </div>
+</div>
+</section>
+<div class="container">
+<h1 class="heading heading--1">Heading 1</h1>
 <h2 class="heading heading--2">Heading 2</h2>
 <h3 class="heading heading--3">Heading 3</h3>
 <h4 class="heading heading--4">Heading 4</h4>
 <h5 class="heading heading--5">Heading 5</h5>
 <h6 class="heading heading--6">Heading 6</h6>
+</div>
     
         <a class="btn" href="" >Default Button</a>
         <a class="btn btn--primary" href="" >Primary Button</a>
@@ -98,8 +115,10 @@
         <script src="js/main.js"></script>
         <script src="js/filter-exercises.js"></script>
     </main>
-    <footer>
+    <footer class="footer">
+        <div class="container">
         Copyright 2024 Airbnb
+    </div>
     </footer>
    
    

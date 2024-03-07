@@ -550,6 +550,28 @@ nav ul li a:hover, nav ul li a:focus {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.slider {
+  background-color: lightblue;
+}
+.slider__container {
+  background-color: lime;
+  overflow-x: scroll;
+  padding-left: 1rem;
+}
+.slider__grid {
+  border: pink;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+.slider__item {
+  background-color: white;
+  width: 300px;
+  height: 400px;
+}
+
 header {
   background-color: #ff385c;
   padding: 1rem;
@@ -558,7 +580,7 @@ header {
   align-items: center;
 }
 
-footer {
+.footer {
   background-color: gray;
   padding: 1rem;
 }
